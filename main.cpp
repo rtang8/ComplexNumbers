@@ -4,19 +4,60 @@
 #include <cmath>
 
 #include "fraction.h"
+#include "complex.h"
 
 using namespace std;
+
+Complex quadratic(int a, int b, int c);
 
 //typedef Complex (*fptr)(const Complex &x, const Complex &y);
 
 int main(int argc, char *argv[]) {
-    Fraction frac1(2, 1);
-    Fraction frac2(1, 2);
 
-    frac1 = (frac1 * frac2);
-    frac1.print();
+    stringstream ss;
+    int a,b,c;
+    string input;
 
-    cout << endl << pow(2.0, (.5)) << endl;
+    cout << "Enter the 'a' value :: ";
+    getline(cin, input);
+    ss << input;
+    ss >> a;
+    if(ss.fail()) {
+        cout << "ERROR :: Invalid Input." << endl;
+        exit(1);
+    }
+
+    ss.clear();
+    cout << "Enter the 'b' value :: ";
+    getline(cin, input);
+    ss << input;
+    ss >> b;
+    if(ss.fail()) {
+        cout << "ERROR :: Invalid Input." << endl;
+        exit(1);
+    }
+
+    ss.clear();
+    cout << "Enter the 'c' value :: ";
+    getline(cin, input);
+    ss << input;
+    ss >> c;
+    if(ss.fail()) {
+        cout << "ERROR :: Invalid Input." << endl;
+        exit(1);
+    }
+
+    Complex temp = temp.quadratic(a,b,c,true);
+    Complex temp2 = temp2.quadratic(a,b,c,false);
+    cout << "Value 1 : " << temp << endl;
+    cout << "Value 2 : " << temp2 << endl;
+
+    cout << endl << "Result of (3+5i)^7" << endl;
+    Complex why(3,1,5,1);
+    Complex oh(1,1,2,1);
+    cout << why % oh << endl;
 
     return 0;
 }
+
+

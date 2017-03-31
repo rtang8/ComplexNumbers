@@ -1,21 +1,30 @@
 #ifndef FRACTION_H
 #define FRACTION_H
 
+#include <iostream>
+
 class Fraction {
 private:
     int m_num;
     int m_den;
-    int gcd(int p, int q);
+
 
 public:
     Fraction();
     Fraction(int num, int den);
+    Fraction(double num);
     ~Fraction();
 
     void set(int num, int den);
     void print();
     void simplify();
     Fraction simplify(Fraction x);
+    Fraction toFrac(double input);
+    Fraction sqrt(Fraction x);
+    int gcd(long long p, long long q);
+
+    int num() const;
+    int den() const;
 
     // Assignment Operators
     Fraction &operator=(const Fraction &fraction);
@@ -76,6 +85,23 @@ public:
     friend
         bool operator>=(const Fraction &x, const Fraction &y);
 
+    friend
+        bool operator==(const Fraction &x, const int &y);
+    friend
+        bool operator!=(const Fraction &x, const int &y);
+    friend
+        bool operator<(const Fraction &x, const int &y);
+    friend
+        bool operator<=(const Fraction &x, const int &y);
+    friend
+        bool operator>(const Fraction &x, const int &y);
+    friend
+        bool operator>=(const Fraction &x, const int &y);
+
+    // Friend Print Operators
+    friend
+        std::ostream &operator<<(std::ostream& os, const Fraction &frac);
 };
+
 
 #endif // FRACTION_H
