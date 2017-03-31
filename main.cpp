@@ -52,9 +52,12 @@ int main(int argc, char *argv[]) {
     cout << "Value 1 : " << temp << endl;
     cout << "Value 2 : " << temp2 << endl;
 
-    cout << endl << "Result of (3+5i)^7" << endl;
+    cout << endl << "Result of (3+5i)^7";
     Complex why(3,1,5,1);
+    cout << endl << why % 7 << endl;
     Complex oh(1,1,2,1);
+
+    cout << endl << "Result of (3+5i)^(1+2i)";
     cout << endl << why % oh << endl;
 
     return 0;
