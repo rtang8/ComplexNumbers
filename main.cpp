@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
     cout << endl << "Result of (3+5i)^7" << endl;
     Complex why(3,1,5,1);
     Complex oh(1,1,2,1);
-    cout << why % oh << endl;
+    cout << endl << why % oh << endl;
 
     return 0;
 }

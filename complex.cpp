@@ -354,15 +354,13 @@ Complex operator%(const Complex &x, const Complex &y) {
     double c = yReal.num()/yReal.den();
     double d = yImag.num()/yImag.den();
     double r = sqrt(pow(xRealDouble,2) + pow(xImagDouble, 2));
-    double p = atan(xImagDouble/xRealDouble);
+    double p = atan(xImagDouble/xRealDouble);   // Theta of origin angle of triangle
 
-    double left = pow(r,c) * exp(d * -1 * p);
+    double left = pow(r,c) * exp(d * -1 * p); // r^c e^-dP
 
-    Fraction upper = cos(d * log(r) + c * p) * left;
-    Fraction lower = sin(d * log(r) + c * p) * left;
-    Complex temp(upper, lower);
+    Fraction upper = cos(d * log(r) + c * p) * left; //r^c e^-dP (cos(dlnr + cP))
+    Fraction lower = sin(d * log(r) + c * p) * left; //r^c e^-dP (sin(dlnr + cP))
+    Complex temp(upper, lower); // upper + lower i
     return temp;
-
-
 }
 
